@@ -1,4 +1,5 @@
 import {getUsersByPageSize} from './mockdata/user';
+import Mock from "mockjs";
 
 export default {
     'post /mock/login': (config) => {
@@ -50,4 +51,39 @@ export default {
     'put /mock/users': true,
     'delete /mock/users': true,
     'delete re:/mock/users/.+': true,
+
+    'get /test-ajax': (config) => {
+        const {
+            name,
+            age,
+            job,
+            position,
+            mobile,
+            email,
+        } = config.params;
+
+
+        function getDatasByParams(name, age, job, position, mobile, email) {
+            const list = [];
+            for (var i=0; i<=9; i++) {
+                list.push(Mock.mock({'id':i, 'name':name+i, 'age':i+age, 'job':job, 'position':position, 'mobile':mobile, 'email':email}));
+            }
+            return list;
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve([200, {
+                    name,
+                    age,
+                    job,
+                    position,
+                    mobile,
+                    email,
+                    total: 888,
+                    list: getDatasByParams(name, age, job, position, mobile, email),
+                }]);
+            }, 1000);
+        });
+    },
 }

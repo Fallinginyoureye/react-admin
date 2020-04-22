@@ -6,8 +6,8 @@ export default function getMenus(userId) {
     return Promise.resolve([
         {key: '1', text: '多级菜单', icon: 'align-left'},
         {key: '1-1', parentKey: '1', text: 'level-1-1', path: '/user-center', icon: 'align-left'},
-        {key: '1-2', parentKey: '1', text: 'level-1-2', icon: 'align-left'},
-        {key: '1-3', parentKey: '1', text: 'level-1-3', icon: 'align-left'},
+        {key: '1-2', parentKey: '1', text: '签到数据菜单', url: 'http://www.yeglory.com/sharedc', icon: 'align-left'},
+        {key: '1-3', parentKey: '1', text: '测试菜单crm-user', path: '/crm-user', icon: 'align-left'},
         {key: '1-4', parentKey: '1', text: 'level-1-4', icon: 'align-left'},
         {key: '1-4-1', parentKey: '1-4', text: 'level-1-4-1', icon: 'align-left'},
         {key: '1-4-2', parentKey: '1-4', text: 'level-1-4-2', icon: 'align-left'},
